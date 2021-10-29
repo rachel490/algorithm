@@ -1,0 +1,28 @@
+def check(num,times):
+    cnt = 0
+    
+    for time in times:
+        cnt += (num//time)
+    
+    return cnt
+        
+
+
+
+def solution(n, times):
+    answer = 0
+    lt = 0
+    rt = max(times)*(n//len(times))
+    
+    while lt<=rt:
+        mid = (lt+rt)//2
+        x = check(mid,times)
+        
+        if x >= n:
+            rt = mid-1
+            answer = mid
+            
+        else:
+            lt = mid+1
+        
+    return answer
